@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "puppeteer-core": "^5.2.1"
+  },
+  "name": "JokiPresensiV1.1",
+  "version": "1.0.0",
+  "main": "JokiPresensi.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

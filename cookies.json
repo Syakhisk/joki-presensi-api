@@ -1,0 +1,57 @@
+[
+  {
+    "name": "_gid",
+    "value": "GA1.3.512685842.1598872039",
+    "domain": ".its.ac.id",
+    "path": "/",
+    "expires": 1598958439,
+    "size": 30,
+    "httpOnly": false,
+    "secure": false,
+    "session": false
+  },
+  {
+    "name": "_ga",
+    "value": "GA1.3.2014639331.1598872039",
+    "domain": ".its.ac.id",
+    "path": "/",
+    "expires": 1661944039,
+    "size": 30,
+    "httpOnly": false,
+    "secure": false,
+    "session": false
+  },
+  {
+    "name": "_gat_gtag_UA_156454913_1",
+    "value": "1",
+    "domain": ".its.ac.id",
+    "path": "/",
+    "expires": 1598872099,
+    "size": 25,
+    "httpOnly": false,
+    "secure": false,
+    "session": false
+  },
+  {
+    "name": "KEBUN",
+    "value": "w12",
+    "domain": "my.its.ac.id",
+    "path": "/",
+    "expires": -1,
+    "size": 8,
+    "httpOnly": false,
+    "secure": false,
+    "session": true
+  },
+  {
+    "name": "TVMSESSID",
+    "value": "tcsl05jnq08vgeee29j3jq36o0pq5k0q6e50lnf8uv2s0qejc6ps4subt28hc65j",
+    "domain": "my.its.ac.id",
+    "path": "/",
+    "expires": 1598875638.959469,
+    "size": 73,
+    "httpOnly": true,
+    "secure": true,
+    "session": false
+  }
+]
