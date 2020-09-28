@@ -1,3 +1,6 @@
+// Fill username with nrp, and password with your password
+// Remove "template" from the name. This file should be named "dataLogin.js"
+
 module.exports = {
   username: ``,
   password: "",

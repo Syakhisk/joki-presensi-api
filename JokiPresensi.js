@@ -1,10 +1,7 @@
-const puppeteer = require("puppeteer-core");
 const path = require("path");
 const fs = require("fs");
 const openExplorer = require("open-file-explorer");
-// const today = require("./dateGenerator");
-const today = " Senin, 5 Oktober 2020";
-// const today = "Senin, 28 September 2020";
+const today = require("./dateGenerator");
 const chalk = require("chalk");
 const loginData = require("./data/dataLogin");
 const login = require("./login");
@@ -129,7 +126,7 @@ const login = require("./login");
       if (err) {
         console.log(err);
       } else {
-        //Do Something
+        console.log(chalk.green("Successfully made a screenshot at") + ssPath);
       }
     });
   }
