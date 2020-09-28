@@ -1,11 +1,61 @@
 const puppeteer = require("puppeteer-core");
 const path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe";
-
-const fs = require("fs").promises;
-
-const login = require("./data/dataLogin");
+const fs = require("fs");
+const today = require("./dateGenerator");
+const chalk = require("chalk");
+const login = require("./login");
 
 (async () => {
+  // Check Class data
+  if (!fs.existsSync("./data/dataClass.json")) {
+    console.log(
+      `${chalk.red("Plz get your class data first using")} ${chalk.bgGrey(
+        " node getClass.js "
+      )}`
+    );
+    return;
+  } else {
+    console.log("Class data exists, proceeding...");
+  }
+
+  let classIndex = process.argv[2];
+  let presensiCode = process.argv[3];
+
+  let classListJson = await fs.promises.readFile("./data/dataClass.json");
+  let classList = JSON.parse(classListJson);
+
+  if (classIndex == undefined) {
+    console.log(chalk.red("Invalid arguments, correct arguments:"));
+    console.log(
+      "\t",
+      chalk.yellow("node jokiPresensi.js"),
+      chalk.cyan("[index-kelas]"),
+      chalk.green("[kode-presensi]")
+    );
+  } else if (presensiCode) {
+    if (classIndex > kelas.length || presensiCode.toString().length < 6) {
+      console.log(colors.bgRed.white("Invalid Kode Presensi / Index Kelas"));
+    } else {
+      console.log(colors.red("Kelas Terpilih: "));
+      console.log(kelas[classIndex]);
+
+      console.log(colors.red("\nKode Presensi: "));
+      console.log(presensiCode);
+    }
+  } else {
+    console.log(colors.red("Kelas Terpilih: "));
+    console.log(kelas[classIndex]);
+
+    console.log("\nFormat penggunaan: ");
+    console.log(
+      "--- node jokiPresensi.js",
+      "[index-kelas]".cyan,
+      "[kode-presensi]".green
+    );
+  }
+
+  return;
+
   //setting for browser
   let settings = {
     headless: false,

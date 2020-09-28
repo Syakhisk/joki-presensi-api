@@ -1,40 +1,14 @@
+const chalk = require("chalk");
 const puppeteer = require("puppeteer-core");
 const path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe";
-
 const fs = require("fs").promises;
-
-const login = require("./data/dataLogin");
+const login = require("./login");
 
 (async () => {
-  //setting for browser
-  let settings = {
-    headless: false,
-    executablePath: path,
-    args: ["--start-maximized"],
-  };
+  const loginReturn = await login();
 
-  //browser instance
-  const browser = await puppeteer.launch(settings);
-
-  //page instance
-  const page = await browser.newPage();
-
-  console.log("Loading Page");
-  await page.goto("https://presensi.its.ac.id/");
-
-  await page
-    .waitForSelector("#username")
-    .then(() => page.type("input#username", login.username))
-    .then(() => page.click("#continue"))
-    .catch(() => console.log("username box not found."));
-
-  await page
-    .waitForSelector("input#password")
-    .then(() => page.type("input#password", login.password))
-    .then(() => page.click("button#login"))
-    .catch(() => console.log("password box not found."));
-
-  await page.waitForNavigation();
+  const page = loginReturn.page;
+  const browser = loginReturn.browser;
 
   const classList = await page.evaluate(() => {
     const listSelector =
@@ -55,14 +29,18 @@ const login = require("./data/dataLogin");
     return data;
   });
 
-  // console.log(classList);
-
   let data = JSON.stringify(classList, null, 2);
 
-  fs.writeFile("data/dataClass.json", data, (err) => {
+  await fs.writeFile("data/dataClass.json", data, (err) => {
     if (err) throw err;
-    console.log("Data written to file");
   });
+  console.log(`Total Class: ${classList.length}`);
+  let num = 0;
+  console.log("Class List:");
+  for (theClass of classList) {
+    num++;
+    console.log(chalk.cyan(`(`, num, `)`, theClass.title));
+  }
 
   await browser.close();
 })();
