@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer-core");
 const path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe";
-const login = require("./data/dataLogin.js");
+const dataLogin = require("./data/dataLogin.js");
 const chalk = require("chalk");
 
 module.exports = async () => {
@@ -22,7 +22,7 @@ module.exports = async () => {
 
   await page
     .waitForSelector("#username")
-    .then(() => page.type("input#username", login.username))
+    .then(() => page.type("input#username", dataLogin.username))
     .then(() => page.click("#continue"))
     .catch(() => console.log("username box not found."));
 
@@ -30,10 +30,12 @@ module.exports = async () => {
   await Promise.all([
     page
       .waitForSelector("input#password")
-      .then(() => page.type("input#password", login.password))
+      .then(() => page.type("input#password", dataLogin.password))
       .then(() => page.click("button#login"))
       .catch(() => console.log("password box not found.")),
-    console.log(chalk.yellow(`Logging in...`)),
+    console.log(
+      chalk.yellow(`Loging in as ${chalk.cyan(dataLogin.username)}...`)
+    ),
 
     //page auth check
     page.waitForNavigation({ timeout: 10000 }).catch(() => {
@@ -49,7 +51,7 @@ module.exports = async () => {
         "#main-container > div > div:nth-child(1) > div > div > div > div > div > div > div > div > div.font-size-lg.font-w600.text-its-black";
       return document.querySelector(nameSelector).textContent;
     });
-    console.log(chalk.blue(`Logged in as ${chalk.green(name)}`));
+    console.log(chalk.green(`Logged in as ${chalk.bold(name)}`));
   } else {
     console.log(chalk.redBright("Incorrect Password"));
   }
