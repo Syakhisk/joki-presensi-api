@@ -6,7 +6,7 @@ const chalk = require("chalk");
 module.exports = async () => {
   //setting for browser
   let settings = {
-    headless: false,
+    headless: true,
     executablePath: path,
     args: ["--start-maximized"],
   };

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chalk": "^4.1.0",
+    "open-file-explorer": "^1.0.2",
     "puppeteer-core": "^5.2.1"
   },
   "name": "JokiPresensiV1.1",
