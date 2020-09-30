@@ -2,7 +2,7 @@
  Males ngisi presensi online? jokiin aja pake JokiPresensi!
 
 # Pre-requisite
- Nodejs - ![Download here](https://nodejs.org/en/download/)
+ Nodejs - [Download here](https://nodejs.org/en/download/)
 
 # Usage
  1. Clone / Download this repository
