@@ -1,0 +1,11 @@
+{
+  "name": "jokiPresensi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Syakhisk/JokiPresensi.git",
+  "author": "syakhisk <mail.syakhisk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^8.0.0"
+  }
+}
