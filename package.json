@@ -1,8 +1,8 @@
 {
-	"name": "joki-presensi",
+	"name": "joki-presensi-api",
 	"version": "1.0.0",
 	"main": "index.js",
-	"repository": "https://github.com/Syakhisk/JokiPresensi.git",
+	"repository": "https://github.com/Syakhisk/joki-presensi-api.git",
 	"author": "syakhisk <mail.syakhisk@gmail.com>",
 	"scripts": {
 		"start": "node bin/www"
