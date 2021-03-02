@@ -10,7 +10,9 @@ const puppeteer = require("puppeteer");
 	const page = await browser.newPage();
 
 	await page.goto("https://example.com");
-	await page.screenshot({ path: "example.png" });
+	let bodyHTML = await page.evaluate(() => document.body.innerHTML);
+	// await page.screenshot({ path: "example.png" });
+	console.log(bodyHTML);
 
 	await browser.close();
 })();
