@@ -4,6 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/Syakhisk/JokiPresensi.git",
   "author": "syakhisk <mail.syakhisk@gmail.com>",
+  "scripts": {
+    "start": "node ."
+  },
   "license": "MIT",
   "dependencies": {
     "puppeteer": "^8.0.0"
