@@ -23,7 +23,7 @@ router.post("/", async function (req, res, next) {
 		return;
 	}
 
-	/** Check if login success*/
+	/** Check if login success */
 	const { page, browser } = await login(req.body);
 	if (!page || !browser) {
 		res.status(404).send({
